@@ -24,7 +24,7 @@ alias ..='cd ..'
 alias more='less'
 alias vim='nvim'
 alias vi='nvim'
-alias tmux='tmux -f ~/.config/tmux/tmux.conf'
+# alias tmux='tmux -f ~/.config/tmux/tmux.conf'
 
 
 # Anwendungen

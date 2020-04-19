@@ -29,7 +29,7 @@ alias vi='nvim'
 
 # Anwendungen
 export PAGER=less
-export EDITOR=vim
+export EDITOR=nvim
 
 
 

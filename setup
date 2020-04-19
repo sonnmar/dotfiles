@@ -2,39 +2,39 @@
 
 # muss noch etwas installiert werden?
 # Wenn ja, dann wird das scripüt beendet.
-inst_err='false'
+inst_err=''
 
 if [ ! $(which nvim) ]; then
     echo "nvim muss noch installiert werden."
-    inst_err='true'
+    inst_err='ja'
 fi
 
 if [ ! $(which tmux) ]; then
     echo "tmux muss noch installiert werden."
-    inst_err='true'
+    inst_err='ja'
 fi
 
 if [ ! $(which zsh) ]; then
     echo "zsh muss noch installiert werden."
-    inst_err='true'
+    inst_err='ja'
 fi
 
 if [ ! $(which tic) ]; then
     echo "tic muss noch installiert werden."
-    inst_err='true'
+    inst_err='ja'
 fi
 
 if [ ! $(which git) ]; then
     echo "git muss noch installiert werden."
-    inst_err='true'
+    inst_err='ja'
 fi
 
 if [ ! $(which curl) ]; then
     echo "curl muss noch installiert werden."
-    inst_err='true'
+    inst_err='ja'
 fi
 
-if [ $inst_err == 'true' ]; then
+if [ $inst_err ]; then
     exit
 fi
 

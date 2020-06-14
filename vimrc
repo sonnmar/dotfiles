@@ -108,8 +108,6 @@ call plug#begin()
 Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'dhruvasagar/vim-table-mode'
-" Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 
@@ -124,8 +122,3 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 " let g:airline_extensions = []
 let g:airline_theme='minimalist'
-
-
-" vim-table-mode
-let g:table_mode_corner_corner='|'
-let g:table_mode_header_fillchar='-'

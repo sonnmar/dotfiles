@@ -4,8 +4,13 @@
 # Wenn ja, dann wird das scripüt beendet.
 inst_err=''
 
-if [ ! $(which nvim) ]; then
-    echo "nvim muss noch installiert werden."
+# if [ ! $(which nvim) ]; then
+#     echo "nvim muss noch installiert werden."
+#     inst_err='ja'
+# fi
+
+if [ ! $(which nano) ]; then
+    echo "nano muss noch installiert werden."
     inst_err='ja'
 fi
 
@@ -41,33 +46,39 @@ fi
 # Terminfo-Dateien übersetzen
 tic -x "$HOME/.dotfiles/terminfo/tmux-256color.terminfo"
 tic -x "$HOME/.dotfiles/terminfo/xterm-256color-italic.terminfo"
-
-# airprompt von git herunterladen
-if [ ! -d "$HOME/.dotfiles/airprompt" ]; then
-    echo "lade airprompt runter:"
-    git clone "https://github.com/sonnmar/airprompt" "$HOME/.dotfiles/airprompt"
-fi
+echo "terminfo-Dateien neu erstellen."
 
 # Konfigurationsverzeichnise vorhanden
-if [ ! -d "$HOME/.config" ]; then
-    echo ".config wird erstellt."
-    mkdir "$HOME/.config"
-fi
+# if [ ! -d "$HOME/.config" ]; then
+#     echo ".config wird erstellt."
+#     mkdir "$HOME/.config"
+# fi
 
-if [ ! -d "$HOME/.config/nvim" ]; then
-    echo ".config/nvim wird erstellt."
-    mkdir "$HOME/.config/nvim"
-fi
+# if [ ! -d "$HOME/.config/nvim" ]; then
+#     echo ".config/nvim wird erstellt."
+#     mkdir "$HOME/.config/nvim"
+# fi
 
-if [ ! -d "$HOME/.tmux" ]; then
-    echo ".tmux wird erstellt."
-    mkdir "$HOME/.tmux"
+# if [ ! -d "$HOME/.tmux" ]; then
+#     echo ".tmux wird erstellt."
+#     mkdir "$HOME/.tmux"
+# fi
+
+if [ ! -d "$HOME/.zsh" ]; then
+    echo ".zsh wird erstellt."
+    mkdir "$HOME/.zsh"
 fi
 
 # Symbolische Links erstellen
-if [ ! -e "$HOME/.config/nvim/init.vim" ]; then
-    echo "link für init.vim wird erstellt."
-    ln -s "$HOME/.dotfiles/vimrc" "$HOME/.config/nvim/init.vim"
+
+# if [ ! -e "$HOME/.config/nvim/init.vim" ]; then
+#     echo "link für init.vim wird erstellt."
+#     ln -s "$HOME/.dotfiles/vimrc" "$HOME/.config/nvim/init.vim"
+# fi
+
+if [ ! -e "$HOME/.nanorc" ]; then
+    echo "link für nanorc wird erstellt."
+    ln -s "$HOME/.dotfiles/nanorc" "$HOME/.nanorc"
 fi
 
 if [ ! -e "$HOME/.tmux.conf" ]; then
@@ -80,15 +91,20 @@ if [ ! -e "$HOME/.zshrc" ]; then
     ln -s "$HOME/.dotfiles/zshrc" "$HOME/.zshrc"
 fi
 
+# airprompt von git herunterladen
+# if [ ! -d "$HOME/.zsh/airprompt" ]; then
+#     echo "lade airprompt runter:"
+#     git clone "https://github.com/sonnmar/airprompt" "$HOME/.zsh/airprompt"
+# fi
+
 # nvim Plugins
-if [ ! -e "$HOME/.local/share/nvim/site/autoload/plug.vim" ]; then
-    echo "plug.vim herunterladen:"
-    curl -flo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-fi
+# if [ ! -e "$HOME/.local/share/nvim/site/autoload/plug.vim" ]; then
+#     echo "plug.vim herunterladen:"
+#     curl -flo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+# fi
 
 # tmux Plugins
-if [ ! -e "$HOME/.tmux/plugins/tpm" ]; then
-    echo "tpm herunterladen:"
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
-
+# if [ ! -e "$HOME/.tmux/plugins/tpm" ]; then
+#     echo "tpm herunterladen:"
+#     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# fi

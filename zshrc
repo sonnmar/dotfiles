@@ -27,7 +27,7 @@ setopt numericglobsort          # Dateinamen nummerisch sortieren
 # Vervollständigung
 fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -U compinit
-compinit -u -d ~/.zsh/zcompdump-$ZSH_VERSION
+compinit -u -d "$HOME/.config/zsh/zcompdump-$ZSH_VERSION"
 setopt hash_list_all
 setopt completeinword
 
@@ -44,7 +44,7 @@ setopt pushd_ignore_dups        # doppelte Einträge vermeiden
 
 
 # History
-HISTFILE="$HOME/.zsh/history"
+HISTFILE="$HOME/.config/zsh/history"
 SAVEHIST=500
 HISTSIZE=1000
 setopt sharehistory             # History zwischen den zsh-Instanzen tauschen
@@ -91,8 +91,8 @@ alias lla='la -l'
 alias llaa='la -lh@'
 alias ..='cd ..'
 alias more='less'
-# alias vi='nvim'
-# alias vim='nvim'
+alias vi='nvim'
+alias vim='nvim'
 
 
 # Anwendungen
@@ -124,14 +124,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 
 # schönes Prompt
-source ~/.dotfiles/simpleprompt.sh
-# typeset -a AP_CONFIG_SECS
-# AP_CONFIG_SECS+=('prs_mode 253 237 253 237')    # VI-Mode
-# AP_CONFIG_SECS+=('prs_git 253 239')             # Git
-# AP_CONFIG_SECS+=('prs_path 253 241')            # Path
-# AP_CONFIG_SECS+=('prs_prompt 007 000')          # Prompt
-# AP_CONFIG_SECS+=('prs_host 253 241')            # Hostname
-# AP_CONFIG_SECS+=('prs_user 253 239')            # Username
-# AP_CONFIG_SECS+=('prs_stat 253 237')            # Statistics
-# AP_CONFIG_SECS+=('prs_error 238 215')           # Error
-# source ~/.dotfiles/airprompt/airprompt.sh
+source ~/.config/dotfiles/simpleprompt.sh
+

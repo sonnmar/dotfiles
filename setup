@@ -1,36 +1,10 @@
 #!/usr/bin/env sh
 
-# muss noch etwas installiert werden?
-# Wenn ja, dann wird das scripüt beendet.
+# Muss noch etwas installiert werden?
 inst_err=''
-
-# if [ ! $(which nvim) ]; then
-#     echo "nvim muss noch installiert werden."
-#     inst_err='ja'
-# fi
-
-if [ ! $(which nano) ]; then
-    echo "nano muss noch installiert werden."
-    inst_err='ja'
-fi
-
-if [ ! $(which tmux) ]; then
-    echo "tmux muss noch installiert werden."
-    inst_err='ja'
-fi
-
-if [ ! $(which zsh) ]; then
-    echo "zsh muss noch installiert werden."
-    inst_err='ja'
-fi
 
 if [ ! $(which tic) ]; then
     echo "tic muss noch installiert werden."
-    inst_err='ja'
-fi
-
-if [ ! $(which git) ]; then
-    echo "git muss noch installiert werden."
     inst_err='ja'
 fi
 
@@ -39,72 +13,103 @@ if [ ! $(which curl) ]; then
     inst_err='ja'
 fi
 
+if [ ! $(which zsh) ]; then
+    echo "zsh muss noch installiert werden."
+    inst_err='ja'
+fi
+
 if [ $inst_err ]; then
     exit
 fi
 
+
+# Warnungen wenn eine Anwendung fehlt.
+if [ ! $(which nvim) ]; then
+    echo "nvim fehlt!."
+fi
+
+if [ ! $(which nano) ]; then
+    echo "nano fehlt."
+fi
+
+if [ ! $(which tmux) ]; then
+    echo "tmux fehlt."
+fi
+
+
+# Installationsverzeichnis
+CONF="$HOME/.config"
+
 # Terminfo-Dateien übersetzen
-tic -x "$HOME/.dotfiles/terminfo/tmux-256color.terminfo"
-tic -x "$HOME/.dotfiles/terminfo/xterm-256color-italic.terminfo"
+tic -x "$CONF/dotfiles/terminfo/tmux-256color.terminfo"
+tic -x "$CONF/dotfiles/terminfo/xterm-256color-italic.terminfo"
 echo "terminfo-Dateien neu erstellen."
 
+
 # Konfigurationsverzeichnise vorhanden
-# if [ ! -d "$HOME/.config" ]; then
-#     echo ".config wird erstellt."
-#     mkdir "$HOME/.config"
-# fi
 
-# if [ ! -d "$HOME/.config/nvim" ]; then
-#     echo ".config/nvim wird erstellt."
-#     mkdir "$HOME/.config/nvim"
-# fi
-
-# if [ ! -d "$HOME/.tmux" ]; then
-#     echo ".tmux wird erstellt."
-#     mkdir "$HOME/.tmux"
-# fi
-
-if [ ! -d "$HOME/.zsh" ]; then
-    echo ".zsh wird erstellt."
-    mkdir "$HOME/.zsh"
+if [ ! -d "$CONF" ]; then
+    echo "~/.config wird erstellt."
+    mkdir "$CONF"
 fi
+
+if [ ! -d "$CONF/zsh" ]; then
+    echo "~/.config/zsh wird erstellt."
+    mkdir "$CONF/zsh"
+fi
+
+if [ ! -d "$CONF/nvim" ]; then
+    echo "~/.config/nvim wird erstellt."
+    mkdir "$CONF/nvim"
+fi
+
+if [ ! -d "$CONF/nano" ]; then
+    echo "~/.config/nano wird erstellt."
+    mkdir "$CONF/nano"
+fi
+
+if [ ! -d "$CONF/tmux" ]; then
+    echo "~/.config/tmux wird erstellt."
+    mkdir "$CONF/tmux"
+fi
+
+if [ ! -d "$CONF/alacritty" ]; then
+    echo "~/.config/alacritty wird erstellt."
+    mkdir "$CONF/alacritty"
+fi
+
 
 # Symbolische Links erstellen
 
-# if [ ! -e "$HOME/.config/nvim/init.vim" ]; then
-#     echo "link für init.vim wird erstellt."
-#     ln -s "$HOME/.dotfiles/vimrc" "$HOME/.config/nvim/init.vim"
-# fi
-
-if [ ! -e "$HOME/.nanorc" ]; then
-    echo "link für nanorc wird erstellt."
-    ln -s "$HOME/.dotfiles/nanorc" "$HOME/.nanorc"
-fi
-
-if [ ! -e "$HOME/.tmux.conf" ]; then
-    echo "link für tmux.conf wird erstellt."
-    ln -s "$HOME/.dotfiles/tmux.conf" "$HOME/.tmux.conf"
-fi
-
-if [ ! -e "$HOME/.zshrc" ]; then
+if [ ! -e "$CONF/.zshrc" ]; then
     echo "link für zshrc wird erstellt."
-    ln -s "$HOME/.dotfiles/zshrc" "$HOME/.zshrc"
+    ln -s "$CONF/dotfiles/zshrc" "$CONF/zsh/.zshrc"
 fi
 
-# airprompt von git herunterladen
-# if [ ! -d "$HOME/.zsh/airprompt" ]; then
-#     echo "lade airprompt runter:"
-#     git clone "https://github.com/sonnmar/airprompt" "$HOME/.zsh/airprompt"
-# fi
+if [ ! -e "$CONF/nvim/init.vim" ]; then
+    echo "link für init.vim wird erstellt."
+    ln -s "$CONF/dotfiles/vimrc" "$CONF/nvim/init.vim"
+fi
+
+if [ ! -e "$CONF/nano/nanorc" ]; then
+    echo "link für nanorc wird erstellt."
+    ln -s "$CONF/dotfiles/nanorc" "$CONF/nano/nanorc"
+fi
+
+if [ ! -e "$CONF/tmux.conf" ]; then
+    echo "link für tmux.conf wird erstellt."
+    ln -s "$CONF/dotfiles/tmux.conf" "$CONF/tmux/tmux.conf"
+fi
+
+if [ ! -e "$CONF/alacritty/alacritty.yml" ]; then
+    echo "link für alacritty.yml wird erstellt."
+    cp alacritty.yml.bp alacritty.yml
+    echo "  ZDOTDIR: $CONF/zsh" >> alacritty.yml
+    ln -s "$CONF/dotfiles/alacritty.yml" "$CONF/alacritty/alacritty.yml"
+fi
 
 # nvim Plugins
-# if [ ! -e "$HOME/.local/share/nvim/site/autoload/plug.vim" ]; then
-#     echo "plug.vim herunterladen:"
-#     curl -flo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-# fi
-
-# tmux Plugins
-# if [ ! -e "$HOME/.tmux/plugins/tpm" ]; then
-#     echo "tpm herunterladen:"
-#     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-# fi
+if [ ! -e "$HOME/.local/share/nvim/site/autoload/plug.vim" ]; then
+    echo "plug.vim herunterladen:"
+    curl -flo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+fi

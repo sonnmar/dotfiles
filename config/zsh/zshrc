@@ -1,0 +1,131 @@
+#
+# zsh Konfigurationsdatei
+#
+
+# Allgemein
+setopt correct                  # Autocorrectur
+setopt autocd                   # nicht gefundene Commands als Directory auffassen und ls testen
+setopt no_beep                  # kein Krach
+
+
+# Jobcontrol
+setopt longlistjobs             # PID auch von suspendierten Prozessen anzeigen
+setopt notify                   # Status von Backroundprozessen anzeigem
+#setopt nohup                   # Jobs beim stoppen der Shell von dieser disownen
+
+
+# Globbing and findig
+#setopt no_nomatch              # "zsh: no match found..." verhindern, gibt nur den Begriff aus
+#setopt null_glob               # gibt bei "no match found" eine leere Zeile aus
+setopt extendedglob             # erweitertes Globbing
+setopt nocaseglob               # Case indenditiv globbing
+setopt noglobdots               # keine Dotfiles matchen
+setopt rcexpandparam            # Arrayerweiterung mit Parametern
+setopt numericglobsort          # Dateinamen nummerisch sortieren
+
+
+# Vervollständigung
+# fpath=(/usr/local/share/zsh-completions $fpath)
+autoload -U compinit
+compinit -u -d "$HOME/.local/share/zsh/zcompdump-$ZSH_VERSION"
+setopt hash_list_all
+setopt completeinword
+
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
+zstyle ':completion:*' rehash true                              # automatically find new executables in path
+zstyle ':completion:*' accept-exact '*(N)'                      # Speed up completion
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.cache/zsh
+
+
+# Push / Pop
+setopt auto_pushd               # alte Directoryeinträge stacken
+setopt pushd_ignore_dups        # doppelte Einträge vermeiden
+
+
+# History
+HISTFILE="$HOME/.local/share/zsh/history"
+SAVEHIST=500
+HISTSIZE=1000
+setopt sharehistory             # History zwischen den zsh-Instanzen tauschen
+setopt appendhistory            # Historyeinträge anhängen
+setopt extendedhistory          # chronologische Ablage der History be mehrere Instanzen
+setopt histignorealldups        # Dupletten in der History vermeiden
+setopt histreduceblanks         # blanks in Einträge komprimieren
+setopt histnostore              # Befehle zur History nicht ablegen
+setopt histignorespace          # Befehle mit Blank am Anfang nicht speichern
+
+
+# ZLE-Modus and Keys
+setopt vi
+# bindkey -v "\e[7~" beginning-of-line        # Anfang
+# bindkey -a "\e[7~" beginning-of-line        # Anfang
+# bindkey -v "\e[8~" end-of-line              # Ende
+# bindkey -a "\e[8~" end-of-line              # Ende
+# bindkey -- "\e[1;2D" backward-word          # Shift-left
+# bindkey -- "\e[1;2C" forward-word           # Shift-right
+# bindkey -- "\e[A" up-line-or-search         # Pfeil aufwärts
+# bindkey -- "\e[B" down-line-or-search       # Pfeil abwärts
+bindkey -v "\e[3~" delete-char              # Entfernen (vorwärts)
+bindkey -a "\e[3~" delete-char              # Entfernen (vorwärts)
+bindkey -a "j" down-line-or-search
+bindkey -a "k" up-line-or-search
+KEYTIMEOUT=5
+
+
+# Pfade
+export PATH=".:$HOME/bin:$PATH"
+
+
+# einige sinnvolle aliase
+alias mex='chmod 755'
+alias nex='chmod 644'
+alias ll='ls -lh'
+alias la='ls -A'
+alias lla='la -la'
+alias llaa='la -lh@'
+alias ..='cd ..'
+alias more='less'
+alias vi='nvim'
+alias vim='nvim'
+
+
+# Einstellungen nach System
+case "$(uname)" in
+    "Darwin")
+        alias ls='ls -G'
+        ;;
+    "Linux")
+        alias ls='ls --color'
+        ;;
+    *)
+        ;;
+esac
+
+
+# Anwendungen
+export PAGER=less
+export EDITOR=nvim
+
+# benötigte Variablen
+# export XDG_CURRENT_DESKTOP=Unity
+# export MOZ_ENABLE_WAYLAND=1
+
+
+# Syntaxhighlighting im Prompt
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+
+
+# Autosuggestion
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+
+
+# Context
+export PATH=/Users/markus/.local/share/context/tex/texmf-osx-64/bin:$PATH
+
+# schönes Prompt
+source ~/.config/zsh/simpleprompt.sh
+

@@ -1,0 +1,35 @@
+# standards
+set linenumbers
+set emptyline
+set mouse
+set unix
+set multibuffer
+set zap
+
+# Logs
+# set historylog
+# set positionlog
+
+# Softly wrap long lines on blanks
+set softwrap
+set atblanks
+
+# tabs and indent
+set tabsize 4
+set tabstospaces
+set autoindent
+set smarthome
+
+# statusbar
+set constantshow
+
+#colors
+set titlecolor black,white
+set statuscolor black,white
+set numbercolor white,black
+set keycolor black,white
+set functioncolor white,black
+
+# syntaxhighlighting
+include /usr/share/nano/*.nanorc
+

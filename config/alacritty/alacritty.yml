@@ -1,0 +1,127 @@
+window:
+  dimensions:
+    columns: 160
+    lines: 42
+  padding:
+    x: 7
+    y: 7
+  dynamic_padding: true
+  decorations: Buttonless
+  startup_mode: Windowed
+  title: Alacritty
+  6ynamic_title: false
+  opacity: 0.96
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+alt_send_esc: false
+
+font:
+  normal:
+    family: Hack Nerd Font
+    style: Regular
+  bold:
+    family: Hack Nerd Font
+    style: Bold
+  italic:
+    family: Hack Nerd Font
+    style: Italic
+  bold_italic:
+    family: Hack Nerd Font
+    style: Bold Italic
+  size: 14
+  offset:
+    x: 0
+    y: 1
+  glyph_offset:
+    x: 0
+    y: 0
+
+bell:
+  animation: EaseOutExpo
+  duration: 0
+  color: '#ffffff'
+  command: None
+
+cursor:
+  style: Beam
+  vi_mode_style: Block
+  unfocused_hollow: true
+  thickness: 0.15
+
+key_bindings:
+  - { key: N,   mods: Control|Shift, action: SpawnNewInstance }
+  - { key: F,   mods: Control|Shift, action: ToggleFullscreen }
+  - { key: M,   mods: Control|Shift, action: Minimize }
+
+env:
+  TERM: xterm-256color
+  ZDOTDIR: /Users/markus/.config/zsh
+
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux new -A -s base -n main"
+
+# Copyright (c) 2017-present Arctic Ice Studio <development@arcticicestudio.com>
+# Copyright (c) 2017-present Sven Greb <code@svengreb.de>
+
+# Project:    Nord Alacritty
+# Version:    0.1.0
+# Repository: https://github.com/arcticicestudio/nord-alacritty
+# License:    MIT
+# References:
+#   https://github.com/alacritty/alacritty
+
+colors:
+  primary:
+    background: '#2e3440'
+    foreground: '#d8dee9'
+    dim_foreground: '#a5abb6'
+  cursor:
+    text: '#2e3440'
+    cursor: '#d8dee9'
+  vi_mode_cursor:
+    text: '#2e3440'
+    cursor: '#d8dee9'
+  selection:
+    text: CellForeground
+    background: '#4c566a'
+  search:
+    matches:
+      foreground: CellBackground
+      background: '#88c0d0'
+    footer_bar:
+      background: '#434c5e'
+      foreground: '#d8dee9'
+  normal:
+    black: '#3b4252'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#88c0d0'
+    white: '#e5e9f0'
+  bright:
+    black: '#4c566a'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#8fbcbb'
+    white: '#eceff4'
+  dim:
+    black: '#373e4d'
+    red: '#94545d'
+    green: '#809575'
+    yellow: '#b29e75'
+    blue: '#68809a'
+    magenta: '#8c738c'
+    cyan: '#6d96a5'
+    white: '#aeb3bb'

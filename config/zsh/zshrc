@@ -123,9 +123,6 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 
-# Context
-export PATH=/Users/markus/.local/share/context/tex/texmf-osx-64/bin:$PATH
-
 # schönes Prompt
 source ~/.config/zsh/simpleprompt.sh
 

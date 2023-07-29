@@ -68,4 +68,5 @@ shell:
 
 # Color-Theme
 import:
- - ~/.config/alacritty/color_onedark.yml
+ - ~/.config/alacritty/color_nord.yml
+

@@ -117,7 +117,7 @@ au FileType xml,html,css setlocal
 call plug#begin()
 Plug 'junegunn/vim-plug'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'navarasu/onedark.nvim'
+Plug 'shaunsingh/nord.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim'
 call plug#end()
@@ -125,10 +125,8 @@ call plug#end()
 
 " Theme aufrufen
 set termguicolors
-let g:onedark_config = {
-    \ 'style': 'dark',
-\}
-colorscheme onedark
+" let g_nord_disable_background = v:true
+colorscheme nord
 " highlight Comment cterm=italic gui=italic
 " highlight Normal guibg=NONE ctermbg=NONE
 

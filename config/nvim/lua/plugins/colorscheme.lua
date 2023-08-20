@@ -1,26 +1,24 @@
 -- main colorscheme --
 return {
-  "EdenEast/nightfox.nvim",
-  lazy = false,
+  "catppuccin/nvim",
+  name = "catppuccin",
   priority = 1000,
   config = function()
 
-    -- colorscheme options
-    require('nightfox').setup({
-      options = {
-        styles = {
-          comments = "italic",
-        }
-      }
+    -- Configuration main colorscheme
+    require("catppuccin").setup({
+      flavour = "frappe", -- latte, frappe, macchiato, mocha
     })
 
     -- set vim colorscheme
-    vim.cmd([[colorscheme nordfox]])
+    vim.cmd.colorscheme "catppuccin"
 
     -- set lualine colorscheme
+    -- local custom_cat = require'lualine.themes.catppuccin'
+    -- custom_cat.normal.c.bg = '#112233'
     require('lualine').setup {
       options = {
-        theme = 'nordfox',
+        theme = 'catppuccin',
       }
     }
 

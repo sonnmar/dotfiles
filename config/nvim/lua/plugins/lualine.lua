@@ -5,12 +5,16 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  opts = {
-    icons_enable = true,
-    component_separators = { left = "", right = ""},
-    section_separators = {left = "", right = ""},
-    disabled_filetypes = {},
-    always_divide_middle = true,
-  },
+  config = function()
+    require("lualine").setup {
+      options = {
+        icons_enable = true,
+        component_separators = { left = "", right = ""},
+        section_separators = {left = "", right = ""},
+        disabled_filetypes = {},
+        always_divide_middle = true,
+      }
+    }
+  end,
 }
 

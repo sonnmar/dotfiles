@@ -57,7 +57,7 @@ key_bindings:
 
 env:
   TERM: xterm-256color
-  ZDOTDIR: /Users/markus/.config/zsh
+  ZDOTDIR: "~/.config/zsh"
 
 shell:
   program: /bin/zsh

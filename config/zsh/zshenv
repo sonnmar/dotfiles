@@ -1,0 +1,23 @@
+#
+# Environment
+#
+
+# path
+export PATH=".:$HOME/Library/Python/3.9/bin:$HOME/bin:$PATH"
+
+# xdg
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# programs
+export PAGER="less"
+export EDITOR="nvim"
+
+# locale-settings
+export LANG="de_DE.UTF-8"
+
+# special for linux and wayland
+# export XDG_CURRENT_DESKTOP=Unity
+# export MOZ_ENABLE_WAYLAND=1
+

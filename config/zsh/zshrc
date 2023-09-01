@@ -24,8 +24,12 @@ setopt rcexpandparam            # Arrayerweiterung mit Parametern
 setopt numericglobsort          # Dateinamen nummerisch sortieren
 
 
-# ZLE-mode and keysettings
+# ZLE
 bindkey -A viins main           # viins as default keymap
+# bindkey -A emacs main           # emacs as default keymap
+
+# source keybindings
+source "$ZDOTDIR/bindings.zsh"
 
 # vimkeys for menuselection
 zmodload zsh/complist
@@ -34,27 +38,8 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
-# vimkeys in vi normal mode
-bindkey -M vicmd "j" down-line-or-search
-bindkey -M vicmd "k" up-line-or-search
-bindkey -M vicmd "\e[3~" delete-char              # delete
 
-# keys in vi insert mode
-bindkey -M viins "\e[A" up-line-or-search         # arrow up
-bindkey -M viins "\e[B" down-line-or-search       # arrow down
-bindkey -M viins "\e[3~" delete-char              # delete
-bindkey -M viins "\e[1~" beginning-of-line        # pos 1 in tmux
-bindkey -M viins "\e[4~" end-of-line              # end in tmux
-
-# keys in emacs mode
-bindkey -M emacs "\e[A" up-line-or-search         # arrow up
-bindkey -M emacs "\e[B" down-line-or-search       # arrow down
-bindkey -M emacs "\e[3~" delete-char              # delete
-bindkey -M emacs "\e[1~" beginning-of-line        # pos 1 in tmux
-bindkey -M emacs "\e[4~" end-of-line              # end in tmux
-
-
-# Vervollständigung
+# Complition
 autoload -Uz compinit
 compinit -u -d "$HOME/.local/share/zsh/zcompdump-$ZSH_VERSION"
 setopt hash_list_all
@@ -86,27 +71,8 @@ setopt histnostore              # Befehle zur History nicht ablegen
 setopt histignorespace          # Befehle mit Blank am Anfang nicht speichern
 
 
-# Pfade
-export PATH=".:$HOME/Library/Python/3.9/bin:$HOME/bin:$PATH"
-export PAGER=less
-export EDITOR=nvim
-# export XDG_CURRENT_DESKTOP=Unity
-# export MOZ_ENABLE_WAYLAND=1
-
-
-
-# einige sinnvolle aliase
-alias mex='chmod 755'
-alias nex='chmod 644'
-alias ls='ls --color'
-alias ll='ls -lh'
-alias la='ls -A'
-alias lla='la -la'
-alias llaa='la -lh@'
-alias ..='cd ..'
-alias more='less'
-alias vi='nvim'
-alias vim='nvim'
+# Aliase-File
+source "$ZDOTDIR/aliases.zsh"
 
 
 # Zap installer

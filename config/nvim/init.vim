@@ -82,14 +82,14 @@ au FileType xml,html,css setlocal
 
 
 " Indent 4 Spaces
-au FileType c,python setlocal
+au FileType c,python,sh setlocal
     \ tabstop=4
     \ softtabstop=4
     \ shiftwidth=4
 
 
 " Indent 2 Spaces
-au FileType lua,shell setlocal
+au FileType lua setlocal
     \ tabstop=2
     \ softtabstop=2
     \ shiftwidth=2

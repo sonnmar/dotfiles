@@ -12,10 +12,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
 
 For the fancy icons in neovim I make use of [Hack Nerd Font](https://www.nerdfonts.com/), I externally installed.
 
-As a new starting point of my Neovim configuration I use the files from [kickstart.vim](https://www.github.com/nvim-lua/kickstart.mvim). My old configuration where miles away from this one. Thank you for your excellent work, it helps me a lot.
+As a new starting point of my Neovim configuration I use the files from [kickstart.vim](https://www.github.com/nvim-lua/kickstart.nvim). My old configuration where miles away from this one. Thank you for your excellent work, it helps me a lot.
 
 I installed the following external tools:
 - [fzf](https://www.github.com/junegunn/fzf)
 - [ripgrep](https://www.github.com/BurntSushi/ripgrep)
-- [fd](https://www.github.com/sharkdep/fd)
+- [fd](https://www.github.com/sharkdp/fd)
 

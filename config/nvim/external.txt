@@ -1,3 +1,0 @@
-brew install shellcheck
-brew install languagetool
-brew install tree-sitter

@@ -9,10 +9,9 @@ return {
     require("lualine").setup {
       options = {
         icons_enable = true,
-        component_separators = { left = "", right = ""},
-        section_separators = {left = "", right = ""},
-        disabled_filetypes = {},
         always_divide_middle = true,
+        component_separators = { left = "", right = ""},
+        section_separators = {left = "", right = ""},        
       }
     }
   end,

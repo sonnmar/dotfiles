@@ -8,7 +8,7 @@ alias nex='chmod 644'
 
 # list dir
 alias ls='ls --color'
-alias ll='ls -lhD "%F %R"'
+alias ll='ls -lh'
 alias la='ls -A'
 alias lla='ll -a'
 alias llaa='lla -@'

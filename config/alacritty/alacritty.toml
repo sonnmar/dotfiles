@@ -39,7 +39,7 @@ multiplier = 3
 
 [shell]
 program = "/usr/bin/tmux"
-args = ["new", "-A", "-s base", "-n main"]
+args = ["new", "-A", "-s base"]
 
 [window]
 startup_mode = "Windowed"

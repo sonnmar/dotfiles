@@ -1,6 +1,7 @@
 #!/bin/bash
-# Based on: https://gist.github.com/XVilka/8346728 and https://unix.stackexchange.com/a/404415/395213
 
+# Checking Truecolor
+# Based on: https://gist.github.com/XVilka/8346728 and https://unix.stackexchange.com/a/404415/395213
 awk -v term_cols="${width:-$(tput cols || echo 80)}" -v term_lines="${height:-1}" 'BEGIN{
     s="/\\";
     total_cols=term_cols*term_lines;
@@ -17,3 +18,10 @@ awk -v term_cols="${width:-$(tput cols || echo 80)}" -v term_lines="${height:-1}
     printf "\n";
 }'
 
+# Based on: https://michenriksen.com/posts/italic-text-in-alacritty-tmux-neovim/
+echo -e '\e[1mBold\e[22m'
+echo -e '\e[2mDimmed\e[22m'
+echo -e '\e[3mItalic\e[23m'
+echo -e '\e[4mUnderlined\e[24m'
+echo -e '\e[4:3mCurly Underlined\e[4:0m'
+echo -e '\e[4:3m\e[58;2;240;143;104mColored Curly Underlined\e[59m\e[4:0m'

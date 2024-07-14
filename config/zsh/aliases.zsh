@@ -20,6 +20,8 @@ alias ..='cd ..'
 alias more='less'
 alias vi='nvim'
 alias vim='nvim'
+alias cat='bat'
+alias ste='nvim $(fzf -m --preview "bat --color=always --style=numbers {}")'
 
 # git
 alias gis='git status'

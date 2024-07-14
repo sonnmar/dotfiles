@@ -22,8 +22,7 @@ As a new starting point of my Neovim configuration I use the files from [kicksta
 I installed the following external tools:
 
 - [fzf](https://www.github.com/junegunn/fzf/)
-- [ripgrep](https://www.github.com/BurntSushi/ripgrep/)
-- [fd](https://www.github.com/sharkdp/fd/)
+- [bat](https://github.com/sharkdp/bat)
 
 To install the tools use your packet-manager of choice.
 

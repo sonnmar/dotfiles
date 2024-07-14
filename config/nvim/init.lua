@@ -45,7 +45,17 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+      {
+        'j-hui/fidget.nvim',
+        tag = 'legacy',
+        opts = {
+          notification = {
+            window = {
+              winblend = 0,
+            }
+          }
+        }
+      },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -110,18 +120,33 @@ require('lazy').setup({
     },
   },
 
-  -- Colortheme 
+  -- Colortheme
   {
-    'EdenEast/nightfox.nvim',
+    'catppuccin/nvim',
+    name = "catppuccin",
     priority = 1000,
 
     config = function()
-      require('nightfox').setup({
+      require('catppuccin').setup({
+        flavour = "macchiato",
+        transparent_background = false,
         options = {
-          transparent = true
+          styles = {
+            comments = "italic",
+          }
         },
+        integrations = {
+          fidget = true,
+          which_key = true,
+          noice = true,
+          mason = true,
+          notify = true,
+          telescope = {
+            enabled = true,
+          },
+        }
       })
-      vim.cmd.colorscheme "nordfox"
+      vim.cmd.colorscheme "catppuccin"
     end,
   },
 
@@ -133,10 +158,11 @@ require('lazy').setup({
     },
     opts = {
       options = {
-        icons_enabled = true,
-        theme = 'nordfox',
-        component_separators = { left = "", right = ""},
-        section_separators = {left = "", right = ""},
+        theme = 'catppuccin',
+        icons_enable = true,
+        always_divide_middle = true,
+        component_separators = { left = "", right = ""},
+        section_separators = {left = "", right = ""},
       },
     },
   },
@@ -145,10 +171,60 @@ require('lazy').setup({
   {
     'akinsho/bufferline.nvim',
     lazy = false,
+    after = "catppuccin",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
+    config = function()
+      require("bufferline").setup {
+        highlights = require("catppuccin.groups.integrations.bufferline").get()
+      }
+    end
+  },
+
+  -- Commandline --
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
     opts = {},
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    config = function()
+      require("noice").setup({
+        views = {
+          cmdline_popup = {
+            position = {
+              row = 10,
+              col = "50%",
+            },
+            size = {
+              width = 60,
+              height = "auto",
+            },
+          },
+          popupmenu = {
+            relative = "editor",
+            position = {
+              row = 13,
+              col = "50%",
+            },
+            size = {
+              width = 60,
+              height = 10,
+            },
+            border = {
+              style = "rounded",
+              padding = { 0, 1 },
+            },
+            win_options = {
+              winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+            },
+          },
+        },
+      })
+    end,
   },
 
   -- Autopair
@@ -260,6 +336,51 @@ vim.keymap.set('n', 'ü', "<cmd>bd<CR>")
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+
+-- [[autocmd]] ----------------------------------------------------------------
+
+-- au group for highlighting yanks
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', {
+  clear = true
+})
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
+
+-- au group for filetype specific settings
+local id_filetype = vim.api.nvim_create_augroup("CustomFiletype", {
+  clear = true
+})
+
+-- markdown- and tex-files: set hard word wraping and text conceal
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"markdown", "tex"},
+  callback = function ()
+    vim.o.wrap = true
+    vim.o.linebreak = true
+    vim.o.breakindent = true
+    vim.o.breakindentopt = "list:2"
+    vim.opt.conceallevel = 0
+  end,
+  group = id_filetype,
+})
+
+-- different indentwidth for lua-files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"lua"},
+  callback = function ()
+    vim.opt.tabstop = 2
+    vim.opt.softtabstop = 2
+    vim.opt.shiftwidth = 2
+  end,
+  group = id_filetype,
+})
 
 
 -- [[ Highlight on yank ]] ----------------------------------------------------

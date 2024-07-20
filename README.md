@@ -17,12 +17,13 @@ To make use of the plugins I need the following plugin-managers:
 
 For the fancy icons in neovim I make use of [Hack Nerd Font](https://www.nerdfonts.com/), I externally installed.
 
-As a new starting point of my Neovim configuration I use the files from [kickstart.vim](https://www.github.com/nvim-lua/kickstart.nvim). My old configuration where miles away from this. Thank you for your excellent work, it helps me a lot.
+As a new starting point of my Neovim configuration I use [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim). My old configuration where miles away from this. Therefor I have no folder for nvim in my config-files. Thank you for your excellent work, it helps me a lot.
 
 I installed the following external tools:
 
-- [fzf](https://www.github.com/junegunn/fzf/)
+- [fzf](https://github.com/junegunn/fzf/)
 - [bat](https://github.com/sharkdp/bat)
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
 
 To install the tools use your packet-manager of choice.
 

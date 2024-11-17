@@ -1,4 +1,4 @@
-import = ["/home/markus/.config/alacritty/theme.toml"]
+general.import = ["/home/markus/.config/alacritty/theme.toml"]
 
 [bell]
 animation = "EaseOutExpo"
@@ -14,7 +14,6 @@ vi_mode_style = "Block"
 
 [env]
 TERM = "alacritty"
-ZDOTDIR = "/home/markus/.config/zsh"
 
 [font]
 size = 11
@@ -37,7 +36,7 @@ bindings = [
 history = 10000
 multiplier = 3
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/tmux"
 args = ["new", "-A", "-sbase"]
 

@@ -2,26 +2,29 @@
 # zsh Konfigurationsdatei
 #
 
-# Allgemein
-setopt correct                  # Autocorrectur
-setopt autocd                   # nicht gefundene Commands als Directory auffassen und ls testen
-setopt no_beep                  # kein Krach
+# create ".local/share/zsh" if not exists
+[ ! -d "${XDG_DATA_HOME:-$HOME/.local/share}/zsh" ] && mkdir "${XDG_DATA_HOME:-$HOME/.local/share}/zsh"
+
+# Basics
+setopt correct                  # autocorrection
+setopt autocd                   # test ls for unknown commands to easy cd
+setopt no_beep                  # no noise
 
 
 # Jobcontrol
-setopt longlistjobs             # PID auch von suspendierten Prozessen anzeigen
-setopt notify                   # Status von Backroundprozessen anzeigem
-#setopt nohup                   # Jobs beim stoppen der Shell von dieser disownen
+setopt longlistjobs             # show PID for suspended processes
+setopt notify                   # show state of background processes
+# setopt nohup                    # disown jobs if shell stops
 
 
 # Globbing and findig
-#setopt no_nomatch              # "zsh: no match found..." verhindern, gibt nur den Begriff aus
-#setopt null_glob               # gibt bei "no match found" eine leere Zeile aus
-setopt extendedglob             # erweitertes Globbing
-setopt nocaseglob               # Case indenditiv globbing
-setopt noglobdots               # keine Dotfiles matchen
-setopt rcexpandparam            # Arrayerweiterung mit Parametern
-setopt numericglobsort          # Dateinamen nummerisch sortieren
+# setopt no_nomatch               # don't show "zsh: no match found..."
+# setopt null_glob                # show empty line in case of "no match found"
+setopt extendedglob             # extended globbing
+setopt nocaseglob               # case indenditiv globbing
+setopt noglobdots               # don't match dotfiles
+setopt rcexpandparam            # expand arrays with parameters
+setopt numericglobsort          # numeric sort of filenames
 
 
 # ZLE
@@ -79,8 +82,11 @@ source "$ZDOTDIR/aliases.zsh"
 eval "$(fzf --zsh)"
 
 
-# Zap installer
+# Plugin-Manager: https://github.com/zap-zsh/zap
+# Install: git clone -b "master" https://github.com/zap-zsh/zap.git "$HOME/.local/share/zap/zap.zsh"
+# Activate:
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+# Plugins:
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "sonnmar/visiprompt"

@@ -94,6 +94,8 @@ au FileType lua setlocal
     \ softtabstop=2
     \ shiftwidth=2
 
+" Colorscheme
+colorscheme desert
 
 " Statuszeile
 " set laststatus=2

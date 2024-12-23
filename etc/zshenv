@@ -1,0 +1,6 @@
+#
+# global Environment
+#
+
+export ZDOTDIR="$HOME/.config/zsh"
+

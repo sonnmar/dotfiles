@@ -83,7 +83,7 @@ eval "$(fzf --zsh)"
 
 
 # Plugin-Manager: https://github.com/zap-zsh/zap
-# Install: git clone -b "master" https://github.com/zap-zsh/zap.git "$HOME/.local/share/zap/zap.zsh"
+# Install: git clone -b "master" https://github.com/zap-zsh/zap.git "$HOME/.local/share/zap"
 # Activate:
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 # Plugins:

@@ -43,20 +43,13 @@
 # resize-overlay-duration = 4s 200ms
 
 font-family = "Source Code Pro"
-
 font-style = default
-
 font-size = 12
 
-# theme = "light:dawnfox,dark:nightfox"
-theme = nightfox
+theme = nordfox
 
-# window size with gtk incl. decoration if set (bug)
-window-height = 43
-window-width = 120
-# window-decoration = false
+window-height = 40
+window-width = 140
 window-theme = ghostty
 
-# command = "/usr/bin/tmux new -A -sbase"
-initial-command = "/usr/bin/tmux new -A -sbase"
-
+command = "/usr/bin/tmux new -A -sbase"

@@ -20,10 +20,10 @@ size = 11
 glyph_offset = { x = 0, y = 0 }
 offset = { x = 0, y = 0 }
 builtin_box_drawing = false
-normal = { family = "Hack Nerd Font Mono", style = "Regular" }
-bold = { family = "Hack Nerd Font Mono", style = "Bold" }
-italic = { family = "Hack Nerd Font Mono", style = "Italic" }
-bold_italic = { family = "Hack Nerd Font Mono",  style = "Bold Italic" }
+normal = { family = "Source Code Pro", style = "Regular" }
+bold = { family = "Source Code Pro", style = "Bold" }
+italic = { family = "Source Code Pro", style = "Italic" }
+bold_italic = { family = "Source Code Pro",  style = "Bold Italic" }
 
 [keyboard]
 bindings = [

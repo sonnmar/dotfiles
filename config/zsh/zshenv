@@ -3,7 +3,7 @@
 #
 
 # path
-export PATH=".:$HOME/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
 
 # xdg
 export XDG_DATA_HOME="$HOME/.local/share"

@@ -30,8 +30,15 @@ for package in $needed; do
     fi
 done
 
-sudo pacman -S "$not_installed"
+sudo pacman -S $not_installed
 
+# .config
+if [[ -d "$HOME/.config" ]]; then
+    echo "folder .config exists"
+else
+    echo "make folder .config"
+    mkdir .config
+fi
 
 # alacritty
 echo "$(symlink "alacritty")"

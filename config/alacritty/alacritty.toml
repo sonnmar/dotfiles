@@ -1,4 +1,4 @@
-general.import = ["/home/markus/.config/alacritty/theme.toml"]
+general.import = ["~/.config/alacritty/theme.toml"]
 
 [bell]
 animation = "EaseOutExpo"
@@ -14,16 +14,17 @@ vi_mode_style = "Block"
 
 [env]
 TERM = "alacritty"
+ZDOTDIR = "~/.config/zsh"
 
 [font]
 size = 11
 glyph_offset = { x = 0, y = 0 }
 offset = { x = 0, y = 0 }
 builtin_box_drawing = false
-normal = { family = "Source Code Pro", style = "Regular" }
-bold = { family = "Source Code Pro", style = "Bold" }
-italic = { family = "Source Code Pro", style = "Italic" }
-bold_italic = { family = "Source Code Pro",  style = "Bold Italic" }
+normal = { family = "Hack Nerd Font", style = "Regular" }
+bold = { family = "Hack Nerd Font", style = "Bold" }
+italic = { family = "Hack Nerd Font", style = "Italic" }
+bold_italic = { family = "Hack Nerd Font",  style = "Bold Italic" }
 
 [keyboard]
 bindings = [
@@ -49,6 +50,6 @@ title = "Alacritty"
 dynamic_title = true
 opacity = 1
 blur = false
-decorations = "Full"
+decorations = "None"
 decorations_theme_variant = "None"
 

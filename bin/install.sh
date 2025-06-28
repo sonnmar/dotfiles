@@ -18,7 +18,7 @@ function symlink() {
 }
 
 # install needed packages
-needed="git zsh tmux neovim bat fzf ripgrep wget lua luarocks ttf-hack-nerd man-db tldr tree"
+needed="alacritty git zsh tmux neovim bat fzf ripgrep wget ttf-hack-nerd man-db tldr tree"
 not_installed=""
 
 for package in $needed; do

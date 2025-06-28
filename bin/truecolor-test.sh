@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Checking Truecolor
 # Based on: https://gist.github.com/XVilka/8346728 and https://unix.stackexchange.com/a/404415/395213
